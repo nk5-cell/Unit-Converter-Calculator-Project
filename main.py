@@ -11,20 +11,16 @@ class MainApp:
         tk.Grid.columnconfigure(master, 0, weight=1)
         tk.Grid.rowconfigure(master, 0, weight=1)
 
-        # build ui
         self.__main_notebook = ttk.Notebook(master)
         self.__main_notebook.grid(column='0', row='0', sticky='nsew')
         self.__main_notebook.rowconfigure('0', weight='1')
         self.__main_notebook.columnconfigure('0', weight='1')
 
-        # Main widget
         self.__mainwindow = self.__main_notebook
-
-        # Add About... tab
+        
         about_app = AboutApp(self.__mainwindow)
         self.__main_notebook.add(about_app.get_top_frame(), text="About...")
 
-        # Add first calculator
         grams_to_ounces_app = GramsToOuncesApp(self.__mainwindow)
         self.__main_notebook.add(grams_to_ounces_app.get_top_frame(), text="Grams to Ounces")
 
